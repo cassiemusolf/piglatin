@@ -1,15 +1,21 @@
 var latin = "ay";
 var vowels = ['a', 'e', 'i', 'o', 'u'];
 
+
 var translator = function(userInput) {
-  for (var i = 0; i < vowels.length ; i++) {
+  for (var i = 0; i < userInput.length ; i++) {
     if (vowels.includes(userInput.charAt(0))) {
       return userInput += latin;
-    } else if (!vowels.includes(userInput.charAt(0,1))) {
-      return userInput += "sky";
+    } else if ((vowels.indexOf(userInput[0] === !vowels)) && (vowels.indexOf(userInput[1] === !vowels))) {
+      return userInput.slice(2, userInput.length) + userInput.slice(0,2) + "ay";
+    } else if (vowels.indexOf(userInput[0] === !vowels)) {
+      return userInput.slice(1, userInput.length) + userInput.slice(0,1) + "ay";
+    } else {
+        return false;
+      }
     }
   }
-}
+
 
 $(function () {
   $('form').submit(function() {
